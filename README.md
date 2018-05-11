@@ -8,8 +8,8 @@
 | Create example project | `schematics schematic --name my-schematics`|
 | Build (required to test schematic) | `npm run build`|
 | Build on change | `npm run build -- -w`|
-| Run schematic in collection.json called my-component (build first!). Note this is a dry run. | `schematics .:my-component --name=test`|
-| Run schematic in collection.json called my-component (build first!) | `schematics .:my-component --name=test --dry-run=false`|
+| Runs schematic in `collection.json` called my-component (build first!). Note this is a dry run. | `schematics .:my-component --name=test`|
+| Runs schematic in `collection.json` called my-component (build first!). | `schematics .:my-component --name=test --dry-run=false`|
 | Get help | `schematics --help`|
 | Debug schematic| `node --inspect-brk $(which schematics) .:myComponent --name=test (debug)`| 
 
@@ -40,7 +40,7 @@
 ***Source***
 - A function that takes nothing and generates its source.
 
-***Rule***
+***Rule | Schematic***
 - Rule = function receiving and returning a tree
 - Rules are composable.
 - Schematic === Rule.
@@ -73,3 +73,24 @@ NPM package with types needed for schematics. Is installed automatically when us
 Official Angular post introducing Schematics. Contains useful commands and explain concepts.
 
 [Schematics - An Introduction](https://blog.angular.io/schematics-an-introduction-dc1dfbc2a2b2)
+
+---
+
+Youtube video introducing schematics. Good explanations and code examples. Note volume is a bit low.
+
+[Intro to Schematics | Angular and Deep Learning ](https://www.youtube.com/watch?v=LZxbDp1nOVo&t=9m7s)
+
+---
+Installation part is a bit iffy, but has good info on templating, publishing, and stuff.
+
+[How To Create Your First Custom Angular Schematics With Ease](https://medium.com/@tomastrajan/️-how-to-create-your-first-custom-angular-schematics-with-ease-️-bca859f3055d)
+
+---
+Great article with example repo on how to work with schematic templates.
+
+[Creating your own application template for angular-cli](https://blog.angularindepth.com/creating-your-own-application-template-for-angular-cli-95e22319cc24)
+
+---
+Multi part article covering many aspects of schematics.
+
+[Generating Custom Code With The Angular CLI And Schematics](http://www.softwarearchitekt.at/post/2017/10/29/generating-custom-code-with-the-angular-cli-and-schematics.aspx)
