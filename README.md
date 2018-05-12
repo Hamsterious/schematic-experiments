@@ -94,3 +94,5 @@ Great article with example repo on how to work with schematic templates.
 Multi part article covering many aspects of schematics.
 
 [Generating Custom Code With The Angular CLI And Schematics](http://www.softwarearchitekt.at/post/2017/10/29/generating-custom-code-with-the-angular-cli-and-schematics.aspx)
+
+[Repo](https://github.com/manfredsteyer/schematics-sample)
