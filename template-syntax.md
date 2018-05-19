@@ -3,10 +3,19 @@
 ## If else
 ```html
 <% if (name) { %>
-  Hello <%= name %>, I'm a schematic.
+  <h1>Hello <%= name %>, I'm a schematic.</h1>
 <% } else { %>
-  Why don't you give me your name with --name?
+ <p> Why don't you give me your name with --name?</p>
 <% } %>
 ```
 
-## 
+## class/interface
+```ts
+export interface <%= classify(name) %> {
+    name: string;
+}
+
+export class <%= classify(name) %> {
+    name: string;
+}
+```

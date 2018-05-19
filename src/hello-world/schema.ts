@@ -1,4 +1,4 @@
-export interface Schema {
-    name: string;
-    path?: string;
+export class Schema {
+    public name: string;
+    public path?: string;
 }

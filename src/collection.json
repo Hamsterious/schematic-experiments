@@ -1,9 +1,13 @@
 {
-    "$schema": "./node_modules/@angular-devkit/schematics/collection-schema.json",
+    "$schema": "./../node_modules/@angular-devkit/schematics/collection-schema.json",
     "schematics": {
         "hello-world": {
-            "description": "Creates a file that says hello",
-            "factory": "./hello-world/index#helloWorld"
+            "aliases": [
+                "hw"
+            ],
+            "factory": "./hello-world/index#helloWorld",
+            "schema": "./hello-world/schema.json",
+            "description": "Creates a file that says hello"
         }
     }
 }
