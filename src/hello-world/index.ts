@@ -30,6 +30,6 @@ const checkOptions = (options: HelloWorldSchema) => {
 
   // Optional
   if (!options.path) {
-    options.path = ''
+    options.path = 'names'
   }
 };
