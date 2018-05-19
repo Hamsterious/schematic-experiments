@@ -1,0 +1,6 @@
+
+<% if (name) { %>
+  Hello <%= name %>!
+<% } else { %>
+  Hello world!
+<% } %>

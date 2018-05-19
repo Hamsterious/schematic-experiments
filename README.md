@@ -13,7 +13,6 @@
 | Get help | `schematics --help`|
 | Debug schematic| `node --inspect-brk $(which schematics) .:myComponent --name=test (debug)`| 
 
-
 ## Possibilites
 - Transform the existing filesystem.
 - Scaffold files.
@@ -52,6 +51,15 @@
         move('/d/f')
     ])
 + chain([<LIST OF RULES>])
+
+## Files
+***collection.json***
+
+Points to all schematics included in the project, their schema.json, factory function, and more.
+
+***schema.json***
+Describes a property for each possible argument.
+
 
 
 ## Notes

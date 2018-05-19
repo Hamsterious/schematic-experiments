@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchemanticsForMenu",
+  "title": "Menu Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of who to say hi to. Default to 'world!'",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "path": {
+      "description": "Where to create the file.",
+      "type": "string",
+      "format": "path"
+    }
+  }
+}
