@@ -66,6 +66,8 @@ Describes a property for each possible argument.
 - Schematics runs in debug by default, and thus does not apply changes.
 - Do not call other Schematics as Rules directly. Use `externalSchematic()` and `schematic()`.
 - Using external schematics requires you to fullfill their requirements as well (for example having a module to register a new component when creating a component via the angular schematics).
+- host, source, and tree are synonymous.
+ 
  
 ## Links
 NPM package to create custom schematic projects

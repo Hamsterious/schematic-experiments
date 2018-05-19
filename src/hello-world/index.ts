@@ -1,56 +1,35 @@
-import { strings } from '@angular-devkit/core';
-import {
-  apply,
-  branchAndMerge,
-  chain,
-  mergeWith,
-  move,
-  Rule,
-  SchematicContext,
-  template,
-  Tree,
-  url,
-} from '@angular-devkit/schematics';
+import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 
-import { Schema } from './schema';
+import { createRule, generateVirtualTree } from '../helpers';
+import { HelloWorldSchema } from './hello-world-schema';
 
-export const helloWorld = (options: Schema): Rule => {
-  // host, source, and tree are kinda synonymous.
+/**
+ * Creates a file saying "Hello <name>!" at specified path.
+ * @param options Options provided from the command line.
+ */
+export const helloWorld = (options: HelloWorldSchema): Rule => {
   return (tree: Tree, context: SchematicContext) => {
-
-    // Prepare values and functions to be made available inside templates.
-    // Templates = files in the files folder.
-    const templateVariables: any = {
-      ...strings,
-      ...options
-    };
-
-    const virtualTree =
-      // Apply a list of rules to a source, and return the result.
-      apply(
-        // Loads a list of files from a URL.
-        // Returns a tree with the files.
-        url('./files'),
-        [
-          // Processes the templates against the provided variables.
-          // Returns a virtual tree.
-          template(templateVariables),
-          // Moves the virtual tree to target location.
-          move(options.path || '')
-        ]
-      );
-
-    const rule = 
-    // Creates a new rule that is a concatenation of other rules.
-    chain([
-      // Everyone uses it, but no one explains what it does...
-      branchAndMerge(
-        chain([
-        // Merges the project tree with the virtual tree.
-        mergeWith(virtualTree)
-      ]))
-    ]);
-
-    return rule(tree, context);
+    checkOptions(options);
+    const virtualTree = generateVirtualTree(options);
+    const helloWorldRule = createRule(virtualTree);
+    return helloWorldRule(tree, context);
   };
 }
+
+/**
+ * Checks options. 
+ * - Throw errors on undefined required options.
+ * - Sets defaults on optional options.
+ * @param options Options provided from the command line.
+ */
+const checkOptions = (options: HelloWorldSchema) => {
+  // Required
+  if (!options.name) {
+    throw new Error('Please provide flag: --name=<any-name>')
+  }
+
+  // Optional
+  if (!options.path) {
+    options.path = ''
+  }
+};
