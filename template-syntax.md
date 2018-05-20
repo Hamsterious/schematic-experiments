@@ -1,21 +1,28 @@
 # Scheatic template syntax
 
-## If else
 ```html
+
 <% if (name) { %>
-  <h1>Hello <%= name %>, I'm a schematic.</h1>
+  <%= name %>
 <% } else { %>
- <p> Why don't you give me your name with --name?</p>
+    <p>Name is missing.</p>
 <% } %>
-```
 
-## class/interface
-```ts
-export interface <%= classify(name) %> {
-    name: string;
-}
+<!-- My test = my_test -->
+<%= decamelize(name) %>
 
-export class <%= classify(name) %> {
-    name: string;
-}
+<!-- myTest = my-test -->
+<%= dasherize(name) %>
+
+<!-- my-test = myTest -->
+<%= camelize(name) %>
+
+<!-- my-test = MyTest -->
+<%= classify(name) %>
+
+<!-- MyTest = my_test -->
+<%= underscore(name) %>
+
+<!-- my_test = My_test -->
+<%= capitalize(name) %>
 ```

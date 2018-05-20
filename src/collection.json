@@ -8,6 +8,13 @@
             "factory": "./hello-world/index#helloWorld",
             "schema": "./hello-world/schema.json",
             "description": "Creates a file that says hello"
+        },
+        "skysmack-package-crud": {
+            "aliases": [
+                "ss-pc"
+            ],
+            "factory": "./skysmack-package-crud/index#skysmackPackageCrud",
+            "description": "Creates a Skysmack package CRUD."
         }
     }
 }
